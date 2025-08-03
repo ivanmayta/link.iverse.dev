@@ -1,22 +1,22 @@
+import { FormUrl } from "@/components/form-url"
+import { Urls } from "@/components/urls"
 
-import { FormUrl } from "@/components/form-url";
-import { Urls } from "@/components/urls";
-
-export default  function Home() {
+export default function Home() {
     return (
-        <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-            <main className="flex flex-col  row-start-2 items-center sm:items-start">
+        <div className="grid grid-rows-[auto_1fr_auto] min-h-screen max-w-xl mx-auto">
+            <header></header>
+            <main className="flex flex-col items-center sm:items-start pt-20 pb-10">
                 <FormUrl />
-                <Urls />  
+                <Urls />
             </main>
-            <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+            <footer className="flex items-center justify-center">
                 <a
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                    href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                    className="flex items-center hover:underline hover:underline-offset-4"
+                    href="https://iverse.dev"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Go to nextjs.org →
+                    Go to iverse.dev →
                 </a>
             </footer>
         </div>

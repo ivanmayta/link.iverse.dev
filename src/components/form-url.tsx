@@ -36,26 +36,33 @@ export function FormUrl() {
             })
     }
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-            <label htmlFor="originalUrl">Enter the Url to be shortened</label>
+        <form
+            onSubmit={handleSubmit}
+            className="flex flex-col w-full gap-2 p-6 rounded-md border  border-zinc-800 "
+        >
+            <label htmlFor="originalUrl">Enter the Url to be shortened:</label>
             <input
                 id="originalUrl"
                 type="text"
+                placeholder="Example: https://iverse.dev"
                 value={originalUrl}
                 onChange={(e) => setOriginalUrl(e.target.value)}
-                className="border-2 border-gray-300 rounded-md p-1"
+                className="border-2 border-gray-300 rounded-md p-2"
             />
 
-            <label htmlFor="customUrl">Enter the custom short url</label>
+            <label htmlFor="customUrl">
+                Enter the custom short url (hash):
+            </label>
             <input
                 id="customUrl"
                 type="text"
+                placeholder="Example: iverse"
                 value={customUrl}
                 onChange={(e) => setCustomUrl(e.target.value)}
-                className="border-2 border-gray-300 rounded-md p-1"
+                className="border-2 border-gray-300 rounded-md p-2"
             />
             <button className="bg-gray-200 text-black hover:bg-white rounded-md p-2">
-                Submit
+                Shorten 🔗
             </button>
         </form>
     )
