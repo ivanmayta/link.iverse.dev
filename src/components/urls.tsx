@@ -1,7 +1,11 @@
 import prisma from "@/lib/prisma/prisma"
 
 export async function Urls() {
-    const prismaClient = await prisma.url.findMany()
+    const prismaClient = await prisma.url.findMany({
+        orderBy: {
+            createdAt: "desc",
+        },
+    })
 
     return (
         <div className="flex flex-col gap-2 p-6 w-full rounded-md border  border-zinc-800 ">
