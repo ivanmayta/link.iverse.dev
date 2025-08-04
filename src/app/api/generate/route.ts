@@ -1,4 +1,5 @@
 import prismaClient from "@/lib/prisma/prisma"
+import { revalidatePath } from "next/cache"
 
 export async function POST(request: Request) {
     const { originalUrl, customUrl } = await request.json()
@@ -22,6 +23,7 @@ export async function POST(request: Request) {
             shortUrl: customUrl,
         },
     })
+    revalidatePath("/")
     return Response.json({
         success: true,
         error: false,

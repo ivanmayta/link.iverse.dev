@@ -6,8 +6,10 @@ import { toast } from "sonner"
 export function FormUrl() {
     const [originalUrl, setOriginalUrl] = useState("")
     const [customUrl, setCustomUrl] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setIsLoading(true)
         const raw = {
             originalUrl,
             customUrl,
@@ -30,9 +32,11 @@ export function FormUrl() {
                 }
                 setOriginalUrl("")
                 setCustomUrl("")
+                setIsLoading(false)
             })
             .catch((err) => {
                 console.log(err)
+                setIsLoading(false)
             })
     }
     return (
@@ -61,8 +65,11 @@ export function FormUrl() {
                 onChange={(e) => setCustomUrl(e.target.value)}
                 className="border-2 border-gray-300 rounded-md p-2"
             />
-            <button className="bg-gray-200 text-black hover:bg-white rounded-md p-2">
-                Shorten 🔗
+            <button
+                disabled={isLoading}
+                className="bg-gray-200 text-black hover:bg-white rounded-md p-2"
+            >
+                {isLoading ? "Shortening..." : "Shorten 🔗"}
             </button>
         </form>
     )

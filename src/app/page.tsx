@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="grid grid-rows-[auto_1fr_auto] min-h-screen max-w-xl mx-auto">
             <header></header>
-            <main className="flex flex-col items-center sm:items-start pt-20 pb-10">
+            <main className="flex flex-col items-center sm:items-start pt-20 pb-10 space-y-6">
                 <FormUrl />
                 <Urls />
             </main>
