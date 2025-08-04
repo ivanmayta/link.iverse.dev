@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { toast } from "sonner"
 
@@ -7,6 +8,7 @@ export function FormUrl() {
     const [originalUrl, setOriginalUrl] = useState("")
     const [customUrl, setCustomUrl] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const router = useRouter()
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setIsLoading(true)
@@ -27,6 +29,7 @@ export function FormUrl() {
             .then((data) => {
                 if (data.success) {
                     toast.success(data.message)
+                    router.refresh()
                 } else {
                     toast.error(data.message)
                 }

@@ -23,7 +23,9 @@ export async function POST(request: Request) {
             shortUrl: customUrl,
         },
     })
-    revalidatePath("/")
+    if (url?.id) {
+        revalidatePath("/")
+    }
     return Response.json({
         success: true,
         error: false,
